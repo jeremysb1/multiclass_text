@@ -26,7 +26,13 @@ df['CATEGORY'] = df['CATEGORY'].apply(lambda x:update_cat(x))
 
 print(df)
 
+encode_dict = {}
 
-df = df.sample(frac=0.05, random_state=1)
+def encode_cat(x):
+    if x not in encode_dict.keys():
+        encode_dict[x] = len(encode_dict)
+    return encode_dict[x]
 
-df = df.reset_index(drop=True)
+#df = df.sample(frac=0.05, random_state=1)
+
+# df = df.reset_index(drop=True)
