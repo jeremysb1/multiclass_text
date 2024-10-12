@@ -61,4 +61,6 @@ class NewsDataset(Dataset):
                 return_token_type_ids = True,
                 truncations = True
             )
+            ids = inputs['input_ids']
+            mask = inputs['attention_mask']
         
