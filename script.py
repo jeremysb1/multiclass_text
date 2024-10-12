@@ -39,4 +39,15 @@ def encode_cat(x):
 
 df['ENCODE_CAT'] = df['CATEGORY'].apply(lambda x:encode_cat(x))
 
-tokenizer = DistilBertTokenizer.from_pretrained()
+tokenizer = DistilBertTokenizer.from_pretrained('distilber-based-uncased')
+
+class NewsDataset(Dataset):
+    def __init__(self, dataframe, tokenizer, max_len):
+        self.len = len(dataframe)
+        self.data = dataframe
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+        
+        def __getitem__(self, index):
+            title = str(self.data.TITLE[index])
+        
