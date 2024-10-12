@@ -50,4 +50,15 @@ class NewsDataset(Dataset):
         
         def __getitem__(self, index):
             title = str(self.data.TITLE[index])
+            title = " ".join(title.split())
+            
+            inputs = self.tokenizer.encode_plus(
+                title,
+                None,
+                add_special_tokens = True,
+                max_length = self.max_len,
+                padding = 'max_length',
+                return_token_type_ids = True,
+                truncations = True
+            )
         
