@@ -69,4 +69,6 @@ class NewsDataset(Dataset):
             'mask':torch.tensor(mask,dtype=torch.long),
             'target':torch.tensor(self.data.ENCODE_CAT[index],dtype=torch.long)
         }
+    
+    def __len__(self):
         
