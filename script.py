@@ -48,19 +48,19 @@ class NewsDataset(Dataset):
         self.tokenizer = tokenizer
         self.max_len = max_len
         
-        def __getitem__(self, index):
-            title = str(self.data.TITLE[index])
-            title = " ".join(title.split())
+    def __getitem__(self, index):
+        title = str(self.data.TITLE[index])
+        title = " ".join(title.split())
             
-            inputs = self.tokenizer.encode_plus(
-                title,
-                None,
-                add_special_tokens = True,
-                max_length = self.max_len,
-                padding = 'max_length',
-                return_token_type_ids = True,
-                truncations = True
-            )
-            ids = inputs['input_ids']
-            mask = inputs['attention_mask']
+        inputs = self.tokenizer.encode_plus(
+            title,
+            None,
+            add_special_tokens = True,
+            max_length = self.max_len,
+            padding = 'max_length',
+            return_token_type_ids = True,
+            truncations = True
+        )
+        ids = inputs['input_ids']
+        mask = inputs['attention_mask']
         
