@@ -38,3 +38,5 @@ def encode_cat(x):
     return encode_dict[x]
 
 df['ENCODE_CAT'] = df['CATEGORY'].apply(lambda x:encode_cat(x))
+
+tokenizer = DistilBertTokenizer.from_pretrained()
