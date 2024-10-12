@@ -64,3 +64,9 @@ class NewsDataset(Dataset):
         ids = inputs['input_ids']
         mask = inputs['attention_mask']
         
+        return {
+            'ids':torch.tensor(ids,dtype=torch.long),
+            'mask':torch.tensor(mask,dtype=torch.long),
+            'target':torch.tensor(self.data.ENCODE_CAT[index],dtype=torch.long)
+        }
+        
