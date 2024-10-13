@@ -84,6 +84,13 @@ print("Train dataset: {}".format(train_dataset.shape))
 print("Test datset: {}".format(test_dataset.shape))
 
 MAX_LEN = 512
+TRAIN_BATCH_SIZE = 4
 
 training_set = NewsDataset(train_dataset, tokenizer, MAX_LEN)
 testing_set = NewsDataset(test_dataset, tokenizer, MAX_LEN)
+
+train_parameters = {
+
+                    'batch_size'
+
+                   }
