@@ -71,4 +71,6 @@ class NewsDataset(Dataset):
         }
     
     def __len__(self):
-        
+        return self.len
+
+train_size = 0.8
