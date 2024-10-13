@@ -74,3 +74,5 @@ class NewsDataset(Dataset):
         return self.len
 
 train_size = 0.8
+train_dataset = df.sample(frac=train_size,random_state=200)
+test_dataset = df.drop(train_dataset.index).reset_index(drop=)
