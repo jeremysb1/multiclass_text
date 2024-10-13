@@ -82,3 +82,5 @@ train_dataset.reset_index(drop=True)
 print("Full dataset: {}".format(df.shape))
 print("Train dataset: {}".format(train_dataset.shape))
 print("Test datset: {}".format(test_dataset.shape))
+
+training_set = NewsDataset(train_dataset, tokenizer, MAX_LEN)
