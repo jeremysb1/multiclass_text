@@ -75,4 +75,10 @@ class NewsDataset(Dataset):
 
 train_size = 0.8
 train_dataset = df.sample(frac=train_size,random_state=200)
-test_dataset = df.drop(train_dataset.index).reset_index(drop=)
+test_dataset = df.drop(train_dataset.index).reset_index(drop=True)
+
+train_dataset.reset_index(drop=True)
+
+print("Full dataset: {}".format(df.shape))
+print("Train dataset: {}".format(train_dataset.shape))
+print("Test datset: {}".format(test_dataset.shape))
