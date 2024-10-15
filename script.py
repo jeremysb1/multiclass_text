@@ -91,7 +91,7 @@ training_set = NewsDataset(train_dataset, tokenizer, MAX_LEN)
 testing_set = NewsDataset(test_dataset, tokenizer, MAX_LEN)
 
 train_parameters = {
-
-                    'batch_size'
-
+                    'batch_size':TRAIN_BATCH_SIZE,
+                    'shuffle':True,
+                    'num_workers':0,
                    }
