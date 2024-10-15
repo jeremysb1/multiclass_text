@@ -97,7 +97,10 @@ train_parameters = {
                    }
 
 test_parameters = {
-               'batch_size':VALID_BATCH_SIZE,
-               'shuffle':True,
-               'num_workers':0,
-              }
+                    'batch_size':VALID_BATCH_SIZE,
+                    'shuffle':True,
+                    'num_workers':0,
+                  }
+
+training_loader = DataLoader(training_set, **train_parameters)
+testing_loader = DataLoader(testing_set, **test_parameters)
