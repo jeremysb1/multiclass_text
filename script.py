@@ -95,3 +95,9 @@ train_parameters = {
                     'shuffle':True,
                     'num_workers':0,
                    }
+
+test_parameters = {
+               'batch_size':VALID_BATCH_SIZE,
+               'shuffle':True,
+               'num_workers':0,
+              }
