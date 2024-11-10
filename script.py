@@ -104,3 +104,11 @@ test_parameters = {
 
 training_loader = DataLoader(training_set, **train_parameters)
 testing_loader = DataLoader(testing_set, **test_parameters)
+
+class DistilBertClass(torch.nn.Module):
+    
+    def __init__(self):
+        
+        super(DistilBertClass,self).__init__()
+        
+        self.l1 = DistilBertModel.from_pretrained('distilbert-base-uncased')
