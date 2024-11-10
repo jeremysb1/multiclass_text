@@ -112,3 +112,7 @@ class DistilBertClass(torch.nn.Module):
         super(DistilBertClass,self).__init__()
         
         self.l1 = DistilBertModel.from_pretrained('distilbert-base-uncased')
+        
+        self.pre_classifier = torch.nn.Linear(768,768)
+        
+        self.dropout = torch.nn.Dropout(0.3)
