@@ -136,3 +136,9 @@ class DistilBertClass(torch.nn.Module):
         output = self.classifier(pooler)
         
         return output
+
+def calculate_accuracy(big_idx, targets):
+    
+    n_correct = (big_idx==targets).sum().item()
+    
+    return n_correct
