@@ -142,3 +142,34 @@ def calculate_accuracy(big_idx, targets):
     n_correct = (big_idx==targets).sum().item()
     
     return n_correct
+
+def train(epoch, model, device, training_loader, optimizer, loss_function):
+    tr_loss = 0
+    n_correct = 0
+    nb_tr_steps = 0
+    nb_tr_examples = 0
+    model.train()
+    
+    for _, data in enumerate(training_loader,0):
+        ids = data['ids'].to(device, dtype=torch.long)
+        mask = data[mask].to(device, dtype=torch.long)
+        targets = data['targets'].to(device, dtype=torch.long)
+        
+        outputs = model(ids, mask)
+        
+        loss = loss_function(outputs, targets)
+        tr_loss += loss.item()
+        big_val, big_idx = torch.max(outputs.data, dim = 1)
+        n_correct += calculate_accuracy(big_idx, targets)
+        
+        nb_tr_steps += 1
+        nb_tr_examples += target.size(0)
+        
+        if _ %5000 == 0:
+            loss_step = tr_loss / nb_tr_steps
+            accu_step = (n_correct*100)/nb_tr_examples
+            print(f"Training loss per 5000 steps: {loss_step}")
+            print(f"Training Accuracy per 5000 steps: {accu_step}")
+    
+    
+    
